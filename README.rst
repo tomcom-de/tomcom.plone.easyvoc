@@ -21,10 +21,16 @@ You an reactivate the entry by putting it again in the value list.
 
 The following example returns a key,value pair list.
 
-> context.getBrowser('easyvoc').get('mycontenttype-mydropdownfield')
+::
+
+    context.getBrowser('easyvoc').get('mycontenttype-mydropdownfield')
+
 
 The following example returns the value for the key
 
-> context.getBrowser('easyvoc').get_value('mycontenttype-mydropdownfield',context.mycontenttype-mydropdownfield)
+::
+
+    context.getBrowser('easyvoc').get_value('mycontenttype-mydropdownfield',context.mycontenttype-mydropdownfield)
+
 
 For getting translations running, enter values in you preffered default language an use po files.
