@@ -29,7 +29,7 @@
                 <label i18n:translate="">From</label>
                 <select name="change_from">
                     <option value=""
-                            i18n:translate="">Please select</option>
+                            i18n:translate="Please select">Please select</option>
                     <tal:block tal:repeat="item python:easyvoc.get(key)">
                         <option tal:attributes="value python:item[0]"
                                 tal:content="python:item[1]"/>

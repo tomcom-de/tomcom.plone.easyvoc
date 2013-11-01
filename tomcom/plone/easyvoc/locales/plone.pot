@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-11-01 10:26+0000\n"
+"POT-Creation-Date: 2013-11-01 11:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,6 +54,7 @@ msgstr ""
 msgid "Manage vocabularies"
 msgstr ""
 
+#: ./../browser.py:116
 #: ./../templates/js_easyvoc_edit.pt:31
 msgid "Please select"
 msgstr ""
@@ -66,8 +67,8 @@ msgstr ""
 msgid "Values"
 msgstr ""
 
-#. Default: "easyvoc"
-#: ./../browser.py:175
+#. Default: "Entry can't be renamed to this value. It exists as an old key value pair."
+#: ./../browser.py:181
 msgid "cannot_rename_key_not_exist"
 msgstr ""
 

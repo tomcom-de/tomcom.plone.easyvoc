@@ -40,7 +40,7 @@ class Browser(BrowserView):
 
         annotation[self._storage_key]=dict(form)
 
-        msgstr=_(msgid='Changes saved.',domain='plone',default='Changes saved.')
+        msgstr=_(msgid='Changes saved.', domain='plone', default='Changes saved.')
         message(msgstr)
         return context.REQUEST.RESPONSE.redirect(context.REQUEST['HTTP_REFERER'])
 
@@ -108,12 +108,18 @@ class Browser(BrowserView):
         context=self.context
         context.getBrowser('tpcheck').auth_view()
 
+        _=context.getAdapter('translate')
         data=self._get_data(storage_key)
         mapping=self.get_mapping_reverse(data)
 
         list_=[]
+        msgstr=_(msgid='Please select', domain='plone', default='Please select')
+        list_.append(('',msgstr))
+
         for item in data.get('list_',[]):
             list_.append((str(mapping[item]),item))
+
+
 
         return list_
 
@@ -172,7 +178,7 @@ class Browser(BrowserView):
         if change_from and change_to:
 
             if change_to in data['mapping'].values():
-                msgstr=_(msgid='cannot_rename_key_not_exist',domain='easyvoc',default='Entry can\'t be renamed to this value. It exists as an old key value pair.')
+                msgstr=_(msgid='cannot_rename_key_not_exist', default='Entry can\'t be renamed to this value. It exists as an old key value pair.')
                 message(msgstr)
                 return context.REQUEST.RESPONSE.redirect(context.REQUEST['HTTP_REFERER'])
 
@@ -185,7 +191,7 @@ class Browser(BrowserView):
 
         self._set_data(data)
 
-        msgstr=_(msgid='Changes saved.',domain='plone',default='Changes saved.')
+        msgstr=_(msgid='Changes saved.', domain='plone', default='Changes saved.')
         message(msgstr)
 
         return context.REQUEST.RESPONSE.redirect(portal.absolute_url()+'/configure_easyvoc')
