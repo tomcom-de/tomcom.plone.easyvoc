@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tomcom.plone.easyvoc\n"
-"POT-Creation-Date: 2013-11-01 11:05+0000\n"
+"POT-Creation-Date: 2013-11-01 11:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,6 +30,10 @@ msgstr "Ändern nach"
 #: ./../browser.py:43
 msgid "Changes saved."
 msgstr "Änderungen gespeichert"
+
+#: ./../profiles/default/actions.xml
+msgid "Manage vocabularies"
+msgstr "Wörterbücher verwalten"
 
 #: ./../templates/configure_easyvoc.pt:42
 msgid "Edit values for key ${value}"

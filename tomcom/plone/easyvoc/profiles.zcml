@@ -10,7 +10,7 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="easyvoc"
+      title="tomcom.plone.easyvoc"
       directory="profiles/default"
       description="Extension profile for easyvoc."
       provides="Products.GenericSetup.interfaces.EXTENSION"
