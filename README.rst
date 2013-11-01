@@ -34,3 +34,6 @@ The following example returns the value for the key
 
 
 For getting translations running, enter values in you preffered default language an use po files.
+
+The design is based on a bootstrap 2.3.x layout. Bootstrap is not included
+
