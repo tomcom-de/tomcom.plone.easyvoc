@@ -6,9 +6,10 @@
            i18n:domain="plone">
 
     <h1 class="documentFirstHeading"
-        i18n:translate="">
+        i18n:translate="enter_values_for">
         Enter values for
-        <i tal:content="form/key"/>
+        <i tal:content="form/key"
+           i18n:name="value"/>
     </h1>
 
     <form method="post"
@@ -28,8 +29,6 @@
             <div>
                 <label i18n:translate="">From</label>
                 <select name="change_from">
-                    <option value=""
-                            i18n:translate="Please select">Please select</option>
                     <tal:block tal:repeat="item python:easyvoc.get(key)">
                         <option tal:attributes="value python:item[0]"
                                 tal:content="python:item[1]"/>
@@ -42,8 +41,10 @@
                 <input type="text" name="change_to"/>
             </div>
         </div>
-        <input type="submit" value="Save"
-               i18n:attributes="value label_save"/>
+        <button type="submit" class="btn btn-primary"
+                i18n:translate="label_save">
+            Save
+        </button>
 
     </form>
 

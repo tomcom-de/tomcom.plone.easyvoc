@@ -20,6 +20,9 @@ class IEasyVoc(Interface):
     def get_value(self,storage_key,key):
         """ """
 
+    def get_for_translation(self):
+        """ """
+
 class Browser(BrowserView):
 
     implements(IEasyVoc)
@@ -93,7 +96,6 @@ class Browser(BrowserView):
 
         data=self._get_data(self._get_storage_key())
 
-        print data
         return '\r\n'.join(data.get('list_',''))
 
     def get_mapping_reverse(self,data):
@@ -147,6 +149,23 @@ class Browser(BrowserView):
         context=self.context
         return context.REQUEST.form.get('key','')
 
+    def _force_update(self,key,list_):
+
+        data={}
+        data['mapping']={}
+        data['list_']=[]
+        data['counter']=0
+        self._set_data(data,key)
+
+        mappingReverse=self.get_mapping_reverse(data)
+
+        data['list_']=list_
+        for item in list_:
+            if not mappingReverse.has_key(item):
+                data['mapping'][self._get_tn(key)]=item
+
+        self._set_data(data,key)
+
     def set(self):
         """ """
         context=self.context
@@ -195,3 +214,26 @@ class Browser(BrowserView):
         message(msgstr)
 
         return context.REQUEST.RESPONSE.redirect(portal.absolute_url()+'/configure_easyvoc')
+
+    def get_for_translation(self):
+        """ """
+        context=self.context
+
+        context.getBrowser('tpcheck').auth_manage_portal()
+
+        portal=context.getAdapter('portal')()
+        annotation=portal.getAdapter('annotation')
+        dict_=annotation.get(self._storage_key,{})
+
+        pt="""<div i18n:domain="plone" i18n:translate="">%s</div>\n"""
+        string_=''
+
+        for key in dict_.get('keys','').split('\r\n'):
+            key=key.strip()
+
+            data=self._get_data(key)
+            mapping=self.get_mapping_reverse(data)
+
+            for item in data.get('list_',[]):
+                string_+=pt%item
+        return string_
